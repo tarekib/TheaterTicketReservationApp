@@ -1,0 +1,97 @@
+<div class="main">
+  <div class="movie-container">
+    <label>
+      Pick a movie
+    </label>
+   <select [(ngModel)]="selectedScreeningId" (change)="getReservedSeats()">
+     <option *ngFor="let sreening of screenings" [value]="sreening.id">{{sreening.startTime |  date: 'medium'}}</option>
+   </select>
+  </div>
+  <ul class="showcase">
+    <li>
+      <div class="seat"></div>
+      <small>N/A</small>
+    </li>
+    <li>
+      <div class="seat occupied"></div>
+      <small>Occupied</small>
+    </li>
+    <li>
+      <div class="seat selected"></div>
+      <small>Selected</small>
+    </li>
+    <li>
+      <div class="seat confirmed"></div>
+      <small>Confirmed</small>
+    </li>
+  </ul>
+  
+  <div class="container">
+    <div class="screen"></div>
+    <div *ngFor="let row of rows" class="row justify-content-center">
+      <div  *ngFor="let index of seatsPerRow" [ngClass]="styleSeat(row,index)" (click)="clickSeat(row,index)"></div>
+    </div>
+    <!-- <div class="row justify-content-center">
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat occupied"></div>
+      <div class="seat"></div>
+      <div class="seat occupied"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="seat"></div>
+      <div class="seat occupied"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat occupied"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="seat occupied"></div>
+      <div class="seat occupied"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat occupied"></div>
+      <div class="seat"></div>
+    </div> -->
+  </div>
+  
+  <!-- <p class="text">
+    You have selected <span id="count">0</span> seats for a price of $ <span id="total">0</span>
+  </p> -->
+  <div class="row">
+    <!-- <button type="button" class="btn btn-danger mr-2" (click)="discardAll()">Reset</button> -->
+    <button type="button" class="btn btn-secondary mr-2" [disabled]="selectedSeats.length === 0 || confirmed" (click)="confirmSeats()">Confirm</button>
+    <button type="button" class="btn btn-success mr-2" [disabled]="!confirmed" (click)="reserveSeats()">Reserve</button>
+  </div>
+</div>
+
+
+

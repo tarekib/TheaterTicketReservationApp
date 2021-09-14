@@ -1,0 +1,20 @@
+<section class="py-7 bg-dark section-angle top-right bottom-right" id="pricing">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 mx-auto text-center">
+        <h2 class="text-white heading-black">Select your theater</h2>
+        <p class="text-light lead">choose your preferable location</p>
+      </div>
+    </div>
+    <!--pricing tables-->
+    <div class="row pt-5 pricing-table">
+      <div class="col-12 mx-auto">
+        <div class="card-deck pricing-table">
+          <div *ngFor="let theater of theatersList">
+            <app-theater [theater]="theater"></app-theater>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

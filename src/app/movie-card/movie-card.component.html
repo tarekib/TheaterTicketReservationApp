@@ -1,0 +1,12 @@
+<div class="card">
+  <a href="#">
+      <img class="card-img-top img-raised" src={{movie.imageUrl}} alt="Blog 2">
+  </a>
+  <div class="card-body">
+      <a href="#" class="card-title mb-2 text-ellipsis"><h5>{{movie.title}}</h5></a>
+      <p class="text-muted small-xl mb-2">August 16, 2021</p>
+      <p class="card-text text-ellipsis">{{movie.description}}</p>
+      <p class="font-weight-bold">{{movie.director}}</p>
+      <button type="button" class="btn btn-light" [routerLink]="['/seats',movie.id]">Book you seat now!</button>
+  </div>
+</div>
